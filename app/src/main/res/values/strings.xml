@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="loginTitle">Hey,\n Login Now.</string>
+    <string name="if_you_are_new">if you are new/</string>
+    <string name="create_new">Create New</string>
+    <string name="username">Username</string>
+    <string name="forget_password">Forget password?/</string>
+    <string name="reset">Reset</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="counti">Continue</string>
+    <string name="find_others">Find others</string>
+    <string name="people_which_you_know">People which you know</string>
+    <string name="friends">friends</string>
+</resources>
