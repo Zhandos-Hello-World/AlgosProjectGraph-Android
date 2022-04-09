@@ -14,4 +14,6 @@
     <string name="find_others">Find others</string>
     <string name="people_which_you_know">People which you know</string>
     <string name="friends">friends</string>
+    <string name="password">password</string>
+    <string name="recommend">Recommend</string>
 </resources>

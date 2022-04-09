@@ -1,4 +1,4 @@
-package production.zhandos.myapplication
+package production.zhandos.myapplication.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,12 +31,6 @@ class MainFragment: Fragment() {
         }
 
         return binding.root
-    }
-
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
     }
 
 }

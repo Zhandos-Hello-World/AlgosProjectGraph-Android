@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="32dp"
-        tools:context="production.zhandos.myapplication.LoginFragment">
+        tools:context="production.zhandos.myapplication.login.LoginFragment">
 
         <ImageView
             android:id="@+id/banner"
