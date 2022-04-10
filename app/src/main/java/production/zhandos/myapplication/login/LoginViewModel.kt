@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import production.zhandos.myapplication.room.UserDao
 
-class LoginViewModel(private val dao: UserDao, val listener: (Boolean) -> Unit): ViewModel() {
+class LoginViewModel(private val dao: UserDao, val listener: (Int) -> Unit): ViewModel() {
     val username = MutableLiveData("")
     val password = MutableLiveData("")
 
@@ -25,10 +25,10 @@ class LoginViewModel(private val dao: UserDao, val listener: (Boolean) -> Unit):
                     }
                     user.active = true
                     dao.update(user)
-                    listener(true)
+                    listener(1)
                 }
                 else {
-                    //Invalid
+                    listener(-1)
                 }
             }
             else {
