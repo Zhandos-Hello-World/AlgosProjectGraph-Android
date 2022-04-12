@@ -15,7 +15,13 @@ interface UserDao {
     suspend fun getUser(username: String, password: String): User?
 
     @Query("SELECT * FROM user WHERE active = 1")
-    suspend fun getActivity(): List<User>
+    fun getActivity(): LiveData<User>
+
+    @Query("SELECT * FROM user WHERE active = 1")
+    suspend fun getActivities(): List<User>
+
+    @Query("SELECT * FROM user WHERE active = 0")
+    fun getNotActivities(): LiveData<List<User>>
 
     @Query("SELECT * FROM user")
     fun getAll(): LiveData<List<User>>

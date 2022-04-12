@@ -1,50 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/find"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:backgroundTint="@color/orange_white"
-            android:text="@string/find_others"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/black"
-            app:cornerRadius="16dp"
-            />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Friends"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:backgroundTint="@color/black_red"
-            android:text="@string/friends"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed-light"
-            app:cornerRadius="16dp"
-            />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/recommend"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:backgroundTint="#1E3895"
-            android:text="@string/recommend"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed-light"
-            app:cornerRadius="16dp"
-            />
-
-    </LinearLayout>
-</layout>
+<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_container_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/navigation_main_fragment"
+    />

@@ -3,9 +3,11 @@ package production.zhandos.myapplication.login
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -32,6 +34,9 @@ class LoginFragment : Fragment() {
         val application = requireNotNull(activity).application
         val dao = MainDataBase.getINSTANCE(application).dao
 
+
+
+
         val factory = LoginViewModelFactory(dao) {
             if (it == 1) {
                 val intent = Intent(activity, MainActivity::class.java)
@@ -42,6 +47,10 @@ class LoginFragment : Fragment() {
                 snackBar.setBackgroundTint(Color.rgb(214,8,0))
                 snackBar.setTextColor(Color.WHITE)
                 snackBar.show()
+
+                val toast = Toast.makeText(view.context, "Invalid username or password", Toast.LENGTH_SHORT)
+                toast.setGravity(Gravity.TOP, 0, 0)
+                toast.show()
             }
         }
         val viewModel = ViewModelProvider(viewModelStore, factory)[LoginViewModel::class.java]
@@ -63,8 +72,8 @@ class LoginFragment : Fragment() {
         binding.root.findNavController().navigate(direct)
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }

@@ -5,32 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import production.zhandos.myapplication.databinding.FragmentMainBinding
+import production.zhandos.myapplication.R
 
 class MainFragment: Fragment() {
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-
-        binding.find.setOnClickListener {
-
-        }
-
-        binding.Friends.setOnClickListener {
-
-        }
-
-        binding.recommend.setOnClickListener {
-
-        }
-
-        return binding.root
+        return layoutInflater.inflate(R.layout.fragment_main, container, false)
     }
-
 }

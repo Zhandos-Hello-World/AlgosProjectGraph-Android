@@ -52,8 +52,8 @@ class RegisterFragment2 : Fragment() {
         return view
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }

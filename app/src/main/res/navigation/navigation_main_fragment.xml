@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main_fragment"
+    app:startDestination="@id/mainFragment2">
+
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="production.zhandos.myapplication.choose.ChooseFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_choose">
+        <action
+            android:id="@+id/action_mainFragment2_to_friendsFragment"
+            app:destination="@id/friendsFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_findFragment"
+            app:destination="@id/findFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_recommendFragment"
+            app:destination="@id/recommendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="production.zhandos.myapplication.find.FindFragment"
+        android:label="FindFragment"
+        tools:layout="@layout/fragment_find">
+        <action
+            android:id="@+id/action_findFragment_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="production.zhandos.myapplication.friends.FriendsFragment"
+        android:label="FriendsFragment"
+        tools:layout="@layout/fragment_friends">
+        <action
+            android:id="@+id/action_friendsFragment_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/recommendFragment"
+        android:name="production.zhandos.myapplication.recommend.RecommendFragment"
+        android:label="RecommendFragment"
+        tools:layout="@layout/fragment_recommend">
+        <action
+            android:id="@+id/action_recommendFragment_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+    </fragment>
+</navigation>

@@ -16,4 +16,9 @@
     <string name="friends">friends</string>
     <string name="password">password</string>
     <string name="recommend">Recommend</string>
+    <string name="full_name">%s %s</string>
+    <string name="followers">%d</string>
+    <string name="follow">Follow</string>
+    <string name="avatar">Avatar</string>
+    <string name="search">Search</string>
 </resources>
