@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import production.zhandos.myapplication.databinding.FragmentFriendsBinding
+import production.zhandos.myapplication.room.MainDataBase
 
 class FriendsFragment: Fragment() {
     private var _binding: FragmentFriendsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: FriendsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +23,13 @@ class FriendsFragment: Fragment() {
 
         val view = binding.root
 
+        val application = requireNotNull(activity).application
+        val dao = MainDataBase.getINSTANCE(application).dao
+
+        val factory = FriendsViewModelFactory(dao)
+        viewModel = ViewModelProvider(viewModelStore, factory)[FriendsViewModel::class.java]
+
+        
 
         return view
     }
