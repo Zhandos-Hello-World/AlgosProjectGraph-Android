@@ -1,7 +1,6 @@
 package production.zhandos.myapplication.find
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,25 +25,34 @@ class FindFragment: Fragment() {
         val view = binding.root
 
         val application = requireNotNull(activity).application
-        val userDao = MainDataBase.getINSTANCE(application).dao
-        val factory = FindViewModelFactory(userDao)
+        val database = MainDataBase.getINSTANCE(application)
+
+        val userDao = database.dao
+        val followDao = database.followDao
+        val factory = FindViewModelFactory(userDao, followDao)
 
         viewModel = ViewModelProvider(viewModelStore, factory)[FindViewModel::class.java]
 
-        val adapter = FindListAdapter {
+        val nextPage: (Long) -> Unit = {
             val action = FindFragmentDirections.actionFindFragmentToProfileFragment(it)
             val controller = view.findNavController()
             controller.navigate(action)
         }
+        val followListener: (Long) -> Unit = {
+            viewModel.follow(it)
+        }
+
+
+        val adapter = FindListAdapter(nextPage, followListener)
+
         binding.personList.adapter = adapter
 
         viewModel.notActive.observe(viewLifecycleOwner, Observer {
-            Log.d("Changed", "True")
             adapter.submitList(it)
         })
 
         viewModel.search.observe(viewLifecycleOwner, Observer {
-
+            //TODO
         })
 
 

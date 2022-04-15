@@ -94,7 +94,7 @@
             android:id="@+id/name"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@{viewModel.user.firstName}"
+            android:text="@{@string/full_name(viewModel.user.lastName, viewModel.user.firstName)}"
             android:textStyle="bold"
             android:textSize="23sp"
 

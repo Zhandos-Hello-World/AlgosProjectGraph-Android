@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import production.zhandos.myapplication.databinding.ItemPersonBinding
 import production.zhandos.myapplication.room.User
 
-class FindListAdapter(var listener: (id: Long) -> Unit) : ListAdapter<User, FindListAdapter.FindRecyclerViewHolder>(FindDiffUtil()) {
+class FindListAdapter(private var listener: (id: Long) -> Unit,
+                      private var followListener: (id: Long) -> Unit) :
+    ListAdapter<User, FindListAdapter.FindRecyclerViewHolder>(FindDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FindRecyclerViewHolder {
         return FindRecyclerViewHolder.inflate(parent)
@@ -15,17 +17,21 @@ class FindListAdapter(var listener: (id: Long) -> Unit) : ListAdapter<User, Find
 
     override fun onBindViewHolder(holder: FindRecyclerViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, listener)
+        holder.bind(item, listener, followListener)
     }
 
     class FindRecyclerViewHolder(private var binding: ItemPersonBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: User, listener: (id: Long) -> Unit) {
+        fun bind(user: User, listener: (id: Long) -> Unit, followListener: (id: Long) -> Unit) {
             binding.user = user
             binding.root.setOnClickListener {
                 listener((binding.user as User).id)
             }
+            binding.follow.setOnClickListener {
+                followListener((binding.user as User).id)
+            }
+
         }
 
         companion object {

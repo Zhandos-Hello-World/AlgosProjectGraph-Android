@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="production.zhandos.myapplication.room.User"
+            />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:src="@drawable/male_avatar_profile_picture_vector_10210618"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@string/avatar" />
+
+            <TextView
+                android:id="@+id/full_name"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                style="@style/SubTitleLogin2"
+                android:text="@{user.login}"
+                android:gravity="center"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/unfollow"
+                android:text="@string/unfollow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+

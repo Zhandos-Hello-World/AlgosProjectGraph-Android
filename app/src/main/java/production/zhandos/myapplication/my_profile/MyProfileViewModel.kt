@@ -9,8 +9,8 @@ class MyProfileViewModel(userDao: UserDao,
                          followDao: FollowDao) : ViewModel() {
     var user: LiveData<User> = Transformations.map(userDao.getActivity()) {it}
     var followers: LiveData<Long> =
-        Transformations.map(followDao.getFollowersCount(user.value?.id ?: -1)) { it ?: 0L }
+        Transformations.map(followDao.getFollowersCount()) { it ?: 0L }
     var following: LiveData<Long> =
-        Transformations.map(followDao.getFollowingsCount(user.value?.id ?: -1)) { it ?: 0L }
+        Transformations.map(followDao.getFollowingsCount()) { it ?: 0L }
 
 }

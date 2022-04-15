@@ -65,4 +65,8 @@
             android:name="user_id"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/followFragment"
+        android:name="production.zhandos.myapplication.follow.FollowFragment"
+        android:label="FollowFragment" />
 </navigation>
