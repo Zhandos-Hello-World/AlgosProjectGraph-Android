@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_findFragment_to_mainFragment2"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_findFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/friendsFragment"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_friendsFragment_to_mainFragment2"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_friendsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/recommendFragment"
@@ -46,5 +52,17 @@
         <action
             android:id="@+id/action_recommendFragment_to_mainFragment2"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_recommendFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="production.zhandos.myapplication.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="user_id"
+            app:argType="long" />
     </fragment>
 </navigation>

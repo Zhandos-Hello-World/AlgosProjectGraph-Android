@@ -16,10 +16,15 @@
         <entry key="..\:/Users/Zhandos/AndroidStudioProjects/AlgorithmAndroidProject/app/src/main/res/layout/fragment_register_2.xml" value="0.20008550662676358" />
         <entry key="..\:/Users/Zhandos/AndroidStudioProjects/AlgorithmAndroidProject/app/src/main/res/layout/item_person.xml" value="0.176" />
         <entry key="..\:/Users/Zhandos/AndroidStudioProjects/AlgorithmAndroidProject/app/src/main/res/menu/main_menu.xml" value="0.20008550662676358" />
+        <entry key="app/src/main/res/layout/fragment_find.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.1743659420289855" />
+        <entry key="app/src/main/res/layout/fragment_myprofile.xml" value="0.20652173913043478" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.28261718750000003" />
+        <entry key="app/src/main/res/layout/item_person.xml" value="0.1671195652173913" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

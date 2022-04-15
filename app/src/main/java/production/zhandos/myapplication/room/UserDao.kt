@@ -7,7 +7,7 @@ import androidx.room.*
 interface UserDao {
 
     @Query("SELECT * FROM user where id = :id")
-    suspend fun getById(id: Long): User
+    fun getById(id: Long): LiveData<User>
 
 
     @Query("SELECT * FROM user WHERE username = :username AND password = :password")
@@ -25,8 +25,8 @@ interface UserDao {
     @Query("SELECT * FROM user")
     fun getAll(): LiveData<List<User>>
 
-//    @Query("SELECT * FROM user INNER JOIN Follow ON follower_id=id INNER JOIN user ON id=:id")
-//    fun getFriends(id: Long): LiveData<List<User>>
+    @Query("SELECT * FROM user")
+    fun getFriends(): LiveData<List<User>>
 
     @Update
     suspend fun update(user: User)

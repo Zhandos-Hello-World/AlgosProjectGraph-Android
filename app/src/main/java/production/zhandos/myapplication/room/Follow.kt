@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 class Follow(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-    @ColumnInfo(name = "follower_id")
-    var followerId: Long = 0L,
-    @ColumnInfo(name = "following_id")
-    var followingId: Long = 0L
+    @ColumnInfo(name = "first_id")
+    var first_id: Long = 0L,
+    @ColumnInfo(name = "second_id")
+    var second_Id: Long = 0L
 )

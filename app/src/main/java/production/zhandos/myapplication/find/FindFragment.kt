@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import production.zhandos.myapplication.databinding.FragmentFindBinding
 import production.zhandos.myapplication.room.MainDataBase
 
@@ -30,7 +31,11 @@ class FindFragment: Fragment() {
 
         viewModel = ViewModelProvider(viewModelStore, factory)[FindViewModel::class.java]
 
-        val adapter = FindListAdapter()
+        val adapter = FindListAdapter {
+            val action = FindFragmentDirections.actionFindFragmentToProfileFragment(it)
+            val controller = view.findNavController()
+            controller.navigate(action)
+        }
         binding.personList.adapter = adapter
 
         viewModel.notActive.observe(viewLifecycleOwner, Observer {

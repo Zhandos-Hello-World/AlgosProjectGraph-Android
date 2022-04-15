@@ -29,7 +29,6 @@ class FriendsFragment: Fragment() {
         val factory = FriendsViewModelFactory(dao)
         viewModel = ViewModelProvider(viewModelStore, factory)[FriendsViewModel::class.java]
 
-        
 
         return view
     }

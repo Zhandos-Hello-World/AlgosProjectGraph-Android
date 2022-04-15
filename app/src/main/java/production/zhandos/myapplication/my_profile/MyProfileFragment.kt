@@ -1,4 +1,4 @@
-package production.zhandos.myapplication.profile
+package production.zhandos.myapplication.my_profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,43 +6,40 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import production.zhandos.myapplication.databinding.FragmentMyprofileBinding
 import production.zhandos.myapplication.databinding.FragmentProfileBinding
 import production.zhandos.myapplication.room.MainDataBase
 
-class ProfileFragment: Fragment() {
-    private var _binding: FragmentProfileBinding? = null
+class MyProfileFragment: Fragment() {
+    private var _binding: FragmentMyprofileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: ProfileViewModel
-
+    private lateinit var viewModel: MyProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-
-        val view = binding.root
-
-        val userId = ProfileFragmentArgs.fromBundle(requireArguments()).userId
+        _binding = FragmentMyprofileBinding.inflate(inflater, container, false)
 
         val application = requireNotNull(activity).application
-        val followDao = MainDataBase.getINSTANCE(application).followDao
         val userDao = MainDataBase.getINSTANCE(application).dao
+        val followDao = MainDataBase.getINSTANCE(application).followDao
 
-        val factory = ProfileViewModelFactory(userId, userDao, followDao)
-        viewModel = ViewModelProvider(viewModelStore, factory)[ProfileViewModel::class.java]
 
+        val factory = MyProfileViewModelFactory(userDao, followDao)
+        viewModel = ViewModelProvider(viewModelStore, factory)[MyProfileViewModel::class.java]
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
 
-        return view
+
+        return binding.root
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }

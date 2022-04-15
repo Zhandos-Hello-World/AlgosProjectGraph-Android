@@ -7,8 +7,8 @@ import production.zhandos.myapplication.room.UserDao
 
 class FriendsViewModelFactory(private val dao: UserDao): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(RecommendViewModel::class.java)) {
-            return RecommendViewModel(dao) as T
+        if (modelClass.isAssignableFrom(FriendsViewModel::class.java)) {
+            return FriendsViewModel(dao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel")
     }
