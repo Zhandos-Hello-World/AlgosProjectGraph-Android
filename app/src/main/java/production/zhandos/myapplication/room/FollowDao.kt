@@ -12,18 +12,12 @@ interface FollowDao {
     @Query("DELETE FROM follow WHERE first_id = :firstId AND second_id = :secondId")
     suspend fun deleteCustom(firstId: Long, secondId: Long)
 
-    @Query("SELECT * FROM Follow WHERE second_id = :id")
-    fun getFollowers(id: Long): LiveData<List<Follow>>
-
-    @Query("SELECT * FROM Follow WHERE first_id = :id")
-    fun getFollowings(id: Long): LiveData<List<Follow>>
 
     @Query("SELECT COUNT(DISTINCT first_id) FROM Follow WHERE second_id = (SELECT id FROM user WHERE active=1)")
     fun getFollowersCount(): LiveData<Long>
 
     @Query("SELECT COUNT(DISTINCT second_id) FROM Follow WHERE first_id = (SELECT id FROM user WHERE active=1)")
     fun getFollowingsCount(): LiveData<Long>
-
 
     @Update
     suspend fun setFollow(follow: Follow)

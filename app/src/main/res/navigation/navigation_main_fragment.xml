@@ -3,19 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main_fragment"
-    app:startDestination="@id/mainFragment2">
+    app:startDestination="@id/chooseFragment">
 
     <fragment
-        android:id="@+id/mainFragment2"
+        android:id="@+id/chooseFragment"
         android:name="production.zhandos.myapplication.choose.ChooseFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_choose">
         <action
-            android:id="@+id/action_mainFragment2_to_friendsFragment"
-            app:destination="@id/friendsFragment" />
-        <action
             android:id="@+id/action_mainFragment2_to_findFragment"
-            app:destination="@id/findFragment" />
+            app:destination="@id/findFragment"/>
         <action
             android:id="@+id/action_mainFragment2_to_recommendFragment"
             app:destination="@id/recommendFragment" />
@@ -27,22 +24,13 @@
         tools:layout="@layout/fragment_find">
         <action
             android:id="@+id/action_findFragment_to_mainFragment2"
-            app:destination="@id/mainFragment2" />
+            app:destination="@id/chooseFragment"
+            app:popUpTo="@id/chooseFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_findFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/friendsFragment"
-        android:name="production.zhandos.myapplication.friends.FriendsFragment"
-        android:label="FriendsFragment"
-        tools:layout="@layout/fragment_friends">
-        <action
-            android:id="@+id/action_friendsFragment_to_mainFragment2"
-            app:destination="@id/mainFragment2" />
-        <action
-            android:id="@+id/action_friendsFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/recommendFragment"
@@ -51,7 +39,10 @@
         tools:layout="@layout/fragment_recommend">
         <action
             android:id="@+id/action_recommendFragment_to_mainFragment2"
-            app:destination="@id/mainFragment2" />
+            app:destination="@id/chooseFragment"
+            app:popUpTo="@id/chooseFragment"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_recommendFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -64,9 +55,15 @@
         <argument
             android:name="user_id"
             app:argType="long" />
+        <action
+            android:id="@+id/action_profileFragment_to_findFragment"
+            app:destination="@id/findFragment"
+            app:popUpTo="@id/findFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_profileFragment_to_recommendFragment"
+            app:destination="@id/recommendFragment"
+            app:popUpTo="@id/recommendFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
-    <fragment
-        android:id="@+id/followFragment"
-        android:name="production.zhandos.myapplication.follow.FollowFragment"
-        android:label="FollowFragment" />
 </navigation>

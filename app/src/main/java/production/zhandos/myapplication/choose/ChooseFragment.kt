@@ -28,11 +28,6 @@ class ChooseFragment: Fragment() {
             navigation.navigate(direct)
         }
 
-        binding.Friends.setOnClickListener {
-            val navigate = view.findNavController()
-            val direct = ChooseFragmentDirections.actionMainFragment2ToFriendsFragment()
-            navigate.navigate(direct)
-        }
 
         binding.recommend.setOnClickListener {
             val navigate = view.findNavController()

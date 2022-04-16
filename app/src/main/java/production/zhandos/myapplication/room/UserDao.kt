@@ -25,6 +25,9 @@ interface UserDao {
     @Query("SELECT * FROM user WHERE id IN (SELECT second_id FROM Follow F INNER JOIN User U ON F.first_id = U.id AND U.active = 1) AND active == 0;")
     fun getFollowings(): LiveData<List<User>>
 
+    @Query("SELECT * FROM user WHERE id IN (SELECT first_id FROM Follow F INNER JOIN User U ON F.second_id = U.id AND U.active = 1) AND active == 0;")
+    fun getFollowers(): LiveData<List<User>>
+
     @Query("SELECT * FROM user")
     fun getAll(): LiveData<List<User>>
 

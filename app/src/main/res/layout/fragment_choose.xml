@@ -21,25 +21,12 @@
             app:cornerRadius="16dp"
             />
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/Friends"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:backgroundTint="@color/black_red"
-            android:text="@string/friends"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed-light"
-            app:cornerRadius="16dp"
-            />
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/recommend"
             android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:backgroundTint="#1E3895"
+            app:backgroundTint="@color/black_red"
             android:text="@string/recommend"
             android:textSize="32sp"
             android:textStyle="bold"

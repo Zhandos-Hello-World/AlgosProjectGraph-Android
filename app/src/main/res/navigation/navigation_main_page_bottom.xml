@@ -13,8 +13,8 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="production.zhandos.myapplication.my_profile.MyProfileFragment"
+        android:name="production.zhandos.myapplication.main.ProfileInstallFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_myprofile"/>
+        tools:layout="@layout/fragment_progile_main"/>
 
 </navigation>

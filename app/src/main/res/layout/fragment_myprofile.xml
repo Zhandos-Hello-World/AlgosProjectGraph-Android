@@ -59,7 +59,7 @@
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/followers"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/friends"
             app:layout_constraintBottom_toBottomOf="@id/avatar"
             >
             <TextView
@@ -75,15 +75,40 @@
                 />
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/following"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            >
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@{@string/followers(viewModel.followers)}"
+                android:textSize="24sp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friends"
+                />
+        </LinearLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/edit_profile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
-
             android:layout_marginStart="@dimen/left_and_right"
             android:layout_marginEnd="@dimen/left_and_right"
             app:cornerRadius="14dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/avatar"
@@ -108,8 +133,7 @@
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="26y.o\nJob: ChocoFamily\nPosition: HR manager"
-
+            android:text=""
             android:layout_margin="@dimen/left_and_right"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"

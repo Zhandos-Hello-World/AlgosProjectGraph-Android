@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_profile"
+    app:startDestination="@id/myProfileFragment">
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="production.zhandos.myapplication.my_profile.MyProfileFragment"
+        android:label="MyProfileFragment"
+        tools:layout="@layout/fragment_myprofile">
+        <action
+            android:id="@+id/action_myProfileFragment_to_followFragment"
+            app:destination="@id/followFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_friendsFragment"
+            app:destination="@id/friendsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/followFragment"
+        android:name="production.zhandos.myapplication.follow.FollowFragment"
+        android:label="FollowFragment"
+        tools:layout="@layout/fragment_follow">
+        <argument
+            android:name="following"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_followFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_followFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment"
+            app:popUpTo="@id/myProfileFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="production.zhandos.myapplication.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="userId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_profileFragment_to_followFragment"
+            app:destination="@id/followFragment"
+            app:popUpTo="@id/friendsFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_profileFragment_to_friendsFragment"
+            app:destination="@id/friendsFragment"
+            app:popUpTo="@id/friendsFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="production.zhandos.myapplication.friends.FriendsFragment"
+        android:label="FriendsFragment"
+        tools:layout="@layout/fragment_friends">
+        <action
+            android:id="@+id/action_friendsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_friendsFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment"
+            app:popUpTo="@id/myProfileFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>

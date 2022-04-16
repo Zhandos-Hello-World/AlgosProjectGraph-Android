@@ -12,5 +12,4 @@ class MyProfileViewModel(userDao: UserDao,
         Transformations.map(followDao.getFollowersCount()) { it ?: 0L }
     var following: LiveData<Long> =
         Transformations.map(followDao.getFollowingsCount()) { it ?: 0L }
-
 }
