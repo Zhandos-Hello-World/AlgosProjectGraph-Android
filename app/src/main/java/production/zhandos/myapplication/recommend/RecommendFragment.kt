@@ -40,13 +40,23 @@ class RecommendFragment: Fragment() {
 
         binding.gridList.adapter = adapter
 
-        viewModel.users.observe(viewLifecycleOwner, Observer {
-           // adapter.submitList(it)
-            var list = mutableListOf<FilterUser>()
-            for (i in it) {
-                list.add(FilterUser(i.id, i.login))
+        viewModel.follow.observe(viewLifecycleOwner, Observer {
+            val connections = viewModel.getAllConnections()
+            if (connections != null) {
+                adapter.submitList(connections)
             }
-            adapter.submitList(list)
+        })
+        viewModel.users.observe(viewLifecycleOwner, Observer {
+            val connections = viewModel.getAllConnections()
+            if (connections != null) {
+                adapter.submitList(connections)
+            }
+        })
+        viewModel.current.observe(viewLifecycleOwner, Observer {
+            val connections = viewModel.getAllConnections()
+            if (connections != null) {
+                adapter.submitList(connections)
+            }
         })
 
         return view
