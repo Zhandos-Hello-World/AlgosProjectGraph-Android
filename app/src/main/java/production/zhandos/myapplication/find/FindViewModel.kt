@@ -1,6 +1,5 @@
 package production.zhandos.myapplication.find
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,11 +21,5 @@ class FindViewModel(private val dao: UserDao, private val followDao: FollowDao):
             followDao.insert(follow)
 
         }
-    }
-    fun unFollow(id: Long) {
-//        viewModelScope.launch {
-//            val follow = Follow(first_id = user.value!!.id, second_Id = id)
-//            followDao.delete(follow)
-//        }
     }
 }

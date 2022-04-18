@@ -1,6 +1,7 @@
 package production.zhandos.myapplication.find
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,8 @@ class FindFragment: Fragment() {
         viewModel = ViewModelProvider(viewModelStore, factory)[FindViewModel::class.java]
 
         val nextPage: (Long) -> Unit = {
-            val action = FindFragmentDirections.actionFindFragmentToProfileFragment(it)
             val controller = view.findNavController()
+            val action = FindFragmentDirections.actionFindFragmentToProfileFragment(it)
             controller.navigate(action)
         }
         val followListener: (Long) -> Unit = {

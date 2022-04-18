@@ -22,4 +22,6 @@ interface FollowDao {
     @Update
     suspend fun setFollow(follow: Follow)
 
+    @Query("SELECT * FROM Follow")
+    fun getAll(): LiveData<List<Follow>>
 }
