@@ -8,7 +8,7 @@ public class DFS {
 
 
     static List<FilterUser> bfs(FilterUser v) {
-        LinkedList<FilterUser> returnValue = new LinkedList<>();
+        LinkedHashSet<FilterUser> returnValue = new LinkedHashSet<>();
         int k = 0;
         Queue<FilterUser> queue = new LinkedList<>();
         queue.add(v);
@@ -22,7 +22,7 @@ public class DFS {
                     FilterUser friend = u.getFriends().get(j);
                     if (!set.contains(friend)) {
                         queue.add(friend);
-                        if (!currUser.getFriends().contains(friend))
+                        if (!currUser.getFriends().contains(friend) && currUser != friend)
                             returnValue.add(friend);
                     }
 
@@ -30,7 +30,7 @@ public class DFS {
             }
             k++;
         }
-        return returnValue;
+        return new LinkedList<>(returnValue);
     }
 }
 

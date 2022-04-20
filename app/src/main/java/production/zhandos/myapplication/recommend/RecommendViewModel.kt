@@ -41,9 +41,13 @@ class RecommendViewModel(private val dao: UserDao, private val followDao: Follow
         }
         val currentUser = list.getById(findById(current.value!!.id))
 
+        for (i in list) {
+            Log.d("User", "${i.name} -> ${i.friends.joinToString{ it.name }}")
+        }
+
+
         DFS.set = HashSet()
         DFS.currUser = currentUser
-        Log.d("DFS", DFS.bfs(currentUser).joinToString { it.name })
         return DFS.bfs(currentUser)
     }
 
